@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Prediction</title>
+    <style>
+        body {
+            background-color: pink;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            animation: backgroundFade 5s infinite alternate;
+        }
+
+        @keyframes backgroundFade {
+            0% { background-color: #ffc0cb; }
+            100% { background-color: #ff99cc; }
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            animation: fadeIn 2s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 { text-align: center; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { margin-right: 10px; font-weight: bold; }
+        input, select { width: 100%; padding: 8px; border-radius: 5px; }
+        button {
+            width: 100%; padding: 10px;
+            background-color: #4CAF50; color: white;
+            border: none; border-radius: 5px;
+            cursor: pointer; transition: transform 0.2s;
+        }
+        button:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Employee Salary Prediction</h1>
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required min="18" placeholder="Enter age">
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="degree">Degree:</label>
+                <input type="text" id="degree" name="degree" required placeholder="Enter degree">
+            </div>
+
+            <div class="form-group">
+                <label for="job_title">Job Title:</label>
+                <input type="text" id="job_title" name="job_title" required placeholder="Enter job title">
+            </div>
+
+            <div class="form-group">
+                <label for="experience_years">Experience (years):</label>
+                <input type="number" id="experience_years" name="experience_years" required min="0">
+            </div>
+
+            <button type="submit">Predict Salary</button>
+        </form>
+    </div>
+</body>
+</html>
